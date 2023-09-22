@@ -40,3 +40,6 @@ lolabunny = new Animal("Lola Bunny", "Hembra")
 
 console.log(snoopy)
 console.log(lolabunny)
+
+snoopy.sonar()
+snoopy.saludar()
