@@ -35,11 +35,40 @@ Animal.prototype.sonar = function () {
 Animal.prototype.saludar = function () {
     console.log(`Hola me llamo ${this.nombre}`)
 }
-const snoopy = new Animal("Snooopy", "Macho")
+
+// herencia prototipica 
+
+function Perro(nombre, genero, tamano) {
+    this.super = Animal
+    this.super(nombre, genero)
+    this.tamano = tamano
+}
+
+/* perro hereda de animal
+ */
+Perro.prototype = new Animal
+Perro.prototype.constructor = Perro
+
+/* sobre escritura de metodos del prototipo padre en el hijo
+ */
+Perro.prototype.sonar = function () {
+    console.log("soy un perro y mi sonido es un ladrido")
+}
+Perro.prototype.ladrar = function () {
+    console.log("GUAA GUAA !!!!")
+}
+
+
+
+
+
+const snoopy = new Perro("Snooopy", "Macho", "Mediano")
 lolabunny = new Animal("Lola Bunny", "Hembra")
+
 
 console.log(snoopy)
 console.log(lolabunny)
 
+/*
 snoopy.sonar()
-snoopy.saludar()
+snoopy.saludar() */
