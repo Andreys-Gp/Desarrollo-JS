@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>HOLA</h1>
+    <h2>saludos</h2>
+    <script>
+      console.log("teoria de js");
+      console.dir(document);
+      const numeros = [1, 2, 3, 4, 5];
+      vocales = ["a", "e", "i", "o", "u"];
+      console.table(numeros);
+      console.table(vocales);
+      console.clear();
+
+      //objecto DATE
+      console.log(Date());
+      let fecha = new Date();
+      console.log(fecha);
+      //dia del mes
+      console.log(fecha.getDate());
+      //dia de la semana D L M MI J V S
+      console.log(fecha.getDay());
+      // MES  ENE FEB-------
+      console.log(fecha.getMonth());
+      //año
+      console.log(fecha.getFullYear());
+      console.log(fecha.getHours());
+      console.log(fecha.getMinutes());
+      console.log(fecha.getSeconds());
+      console.log(fecha.getMilliseconds());
+      //en cadenas de texto
+      console.log(fecha.toString());
+      console.log(fecha.toDateString());
+      //hora local
+      console.log(fecha.toLocaleString());
+      console.log(fecha.toLocaleDateString());
+      console.log(fecha.toLocaleTimeString());
+
+      console.clear();
+
+      //operador cortocircuito
+
+      /*  Corto circuito ORD-cuando el valor de la izquierda de la expresion
+      siempre pueda validar a true,es el valor que se cargara por defecto
+
+      Corto circuito AND-cuando el valor de la izquierda en la expresion
+      siempre pueda validar a false, es el valor que se cargara por defecto  */
+
+      function saludar(nombre) {
+        nombre = nombre || "Desconocido";
+        console.log(`Hola ${nombre}`);
+      }
+      saludar("Brayan");
+      saludar();
+
+      console.clear();
+
+      /* metodos interactuar con el usuario
+       */
+
+      console.log(window);
+      /* alert("Hola esto es un alerta");
+      confirm("Hola esto es una confirmacion");
+      prompt("Hola esto es un aviso y permite al usuario ingresar un valor"); */
+
+      /* let alerta = alert("Alerta");
+      confirmacion = confirm("confirme");
+      aviso = prompt("ingrese valor");
+
+      console.log(alerta);
+      console.log(confirmacion);
+      console.log(aviso); */
+
+      console.clear();
+
+      //expresiones regulares
+
+      let cadena =
+        "dolor minim id est incididunt commodo proident reprehenderit occaecat amet adipiscing cupidatat anim occaecat officia elit anim incididunt quis ad ipsum nisi eu magna eu laboris do sunt enim exercitation ad non labore enim quis deserunt deserunt lorem enim proident consequat consectetur dolor exercitation adipiscing magna Excepteur cillum esse quis non deserunt labore ad reprehenderit ad sunt enim ipsum proident nisi Excepteur in tempor consectetur dolore non eiusmod Excepteur sed ad mollit Excepteur dolor nulla nulla proident irure aliquip minim laborum dolor occaecat ipsum sint";
+
+      let expReg = new expReg("dolor", "");
+      let expReg2 = /dolor/;
+      console.log(expReg.test(cadena));
+      console.log(expReg.exec(cadena));
+      //------------------
+    </script>
+  </body>
+</html>
