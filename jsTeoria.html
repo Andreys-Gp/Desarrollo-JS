@@ -46,10 +46,10 @@
       //operador cortocircuito
 
       /*  Corto circuito ORD-cuando el valor de la izquierda de la expresion
-      siempre pueda validar a true,es el valor que se cargara por defecto
+           siempre pueda validar a true,es el valor que se cargara por defecto
 
-      Corto circuito AND-cuando el valor de la izquierda en la expresion
-      siempre pueda validar a false, es el valor que se cargara por defecto  */
+           Corto circuito AND-cuando el valor de la izquierda en la expresion
+           siempre pueda validar a false, es el valor que se cargara por defecto  */
 
       function saludar(nombre) {
         nombre = nombre || "Desconocido";
@@ -65,16 +65,16 @@
 
       console.log(window);
       /* alert("Hola esto es un alerta");
-      confirm("Hola esto es una confirmacion");
-      prompt("Hola esto es un aviso y permite al usuario ingresar un valor"); */
+           confirm("Hola esto es una confirmacion");
+           prompt("Hola esto es un aviso y permite al usuario ingresar un valor"); */
 
       /* let alerta = alert("Alerta");
-      confirmacion = confirm("confirme");
-      aviso = prompt("ingrese valor");
+           confirmacion = confirm("confirme");
+           aviso = prompt("ingrese valor");
 
-      console.log(alerta);
-      console.log(confirmacion);
-      console.log(aviso); */
+           console.log(alerta);
+           console.log(confirmacion);
+           console.log(aviso); */
 
       console.clear();
 
@@ -87,6 +87,21 @@
       let expReg2 = /dolor/;
       console.log(expReg.test(cadena));
       console.log(expReg.exec(cadena));
+
+      console.clear();
+      //funcion anonima auto ejecutable
+      (function () {
+        console.log("mi primer IIFE");
+      })();
+
+      (function (d, w, c) {
+        console.log("mi segundo IIFE");
+        console.log(d);
+        console.log(w);
+        c.log("esto es un console");
+      })(document, window, console);
+
+      console.clear();
       //------------------
     </script>
   </body>
