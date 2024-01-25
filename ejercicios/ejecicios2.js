@@ -97,4 +97,35 @@ const factorial = (numero = undefined) => {
     for (let i = 1; i > 1; i--) {
         factorial *= i;
     }
+    return console.info(`El factorial de "${numero}" es  "${factorial}" `);
 }
+factorial();
+factorial("6");
+factorial(-4);
+
+/*12 programe una funcion que determine si un numero es primo(aquel que solo se divide entre si)
+o no */
+
+const numeroPrimo = (numerop = undefined) => {
+    if (typeof numerop !== "number") return console.error(`no ingresaste un numero "${numerop}"`);
+    if (typeof numeroPrimo === undefined) return console.warn("no ingresaste numero");
+    if (numerop === 0) return console.error("el numero no puede ser 0");
+    if (numerop === 1) return console.error("el numero no puede ser 1");
+    if (Math.sign(numerop) === -1) return console.error(`el numero "${numerop}" no puede ser negativo`);
+    let divisible = false;
+    for (let i = 2; i < numerop; i++) {
+        if (numerop % i === 0) {
+            divisible = true;
+            break;
+        }
+    }
+    return (divisible) ?
+        console.log(`el numero "$"`) :
+        console.log(`el numero "${numerop}" no es primo`);
+}
+numeroPrimo(2);
+
+
+/*  13 programe una funcion que determine si un numero es par o impar  */
+
+/* 14 programe una funcion para convertir grados celcius a fahrenheit y viceversa */
