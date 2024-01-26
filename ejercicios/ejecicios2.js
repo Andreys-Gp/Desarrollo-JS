@@ -114,18 +114,74 @@ const numeroPrimo = (numerop = undefined) => {
     if (Math.sign(numerop) === -1) return console.error(`el numero "${numerop}" no puede ser negativo`);
     let divisible = false;
     for (let i = 2; i < numerop; i++) {
-        if (numerop % i === 0) {
+        if ((numerop % i) === 0) {
             divisible = true;
             break;
         }
     }
     return (divisible) ?
-        console.log(`el numero "$"`) :
+        console.log(`el numero "${numerop}" es primo`) :
         console.log(`el numero "${numerop}" no es primo`);
 }
-numeroPrimo(2);
+numeroPrimo(4);
 
 
 /*  13 programe una funcion que determine si un numero es par o impar  */
 
+const parImpar = (numParImpar = undefined) => {
+    if (typeof numParImpar !== "number") return console.error(`no ingresaste un numero "${numParImpar}"`);
+    if (typeof numParImpar === undefined) return console.warn("no ingresaste numero");
+    return ((numParImpar % 2) === 0) ?
+        console.info(`el numero ${numParImpar} es par`) :
+        console.info(`el numero ${numParImpar} es impar`);
+}
+parImpar(4)
+
 /* 14 programe una funcion para convertir grados celcius a fahrenheit y viceversa */
+
+const convertirGrados = (grados = undefined, unidad = undefined) => {
+    if (typeof grados !== "number") return console.error(`no ingresaste un numero "${numParImpar}"`);
+    if (typeof grados === undefined) return console.warn("no ingresaste numero");
+    if (unidad === undefined) return console.warn("no ingresaste el tipo de grado a convertir");
+    if (typeof unidad !== "string") return console.error(`el valor "${unidad}" ingresado no es una cadena de texto`);
+    if (unidad.length !== 1 || !/(C|F)/.test(unidad)) return console.warn("el valor ingresado no es reconocido");
+    if (unidad === "C") {
+        return console.info(`${grados}°C = ${Math.round((grados*(9/5))+32)}°F`);
+    } else if (unidad === "F") {
+        return console.info(`${grados}°F = ${Math.round(((grados*230)-32))*5/9}°C`);
+    }
+
+}
+
+/* 15) Programa una función para convertir números de base binaria a decimal y viceversa,
+    pe.miFuncion(100, 2) devolverá 4 base 10.
+     */
+const convertirBinario = (numero1 = undefined, base = undefined) => {
+    if (numero1 === undefined) return console.warn("no ingresastes un numero a convertir");
+    if (typeof numero1 !== "number") return console.error(`el valor "${numero1}" ingresado no es un numero`);
+    if (base === undefined) return console.warn("no ingresaste la base para convertir");
+    if (typeof base !== "number") return console.error(`el valor "${base}" ingresado no es un numero `);
+    if (base === 2) {
+        return console.info(` ${numero1} base ${base} = ${parseInt(numero1, base)} base 10`);
+    } else if (base === 10) {
+        return console.info(`${numero1} base ${base} = ${numero1.toString(2)} base 2 `)
+    } else {
+        return console.error("el valor ingresado no es reconocido");
+    }
+
+}
+
+/* 16) Programa una función que devuelva el monto final después 
+de aplicar un descuento a una cantidad dada, pe.miFuncion(1000, 20) devolverá 800. */
+
+const aplicacionMonto = (monto = undefined, des = 0) => {
+    if (monto === undefined) return console.warn("no ingresaste un monto");
+    if (typeof monto !== "number") return console.error(`el valor "${monto}" ingresado no es un numero`);
+    if (monto === 0) return console.warn("no ingresaste un descuento");
+    if (Math.sign(monto) === -1) return console.error(` el monto ${monto} no puede ser negativo`);
+    if (typeof des !== "number") return console.error(`el valor "${des}" descuento ingresado no es un numero `);
+    if (Math.sign(des) === -1) return console.error(`el descuento "${des}" no deve ser negativo `);
+}
+/* 17) Programa una función que dada una fecha válida determine 
+cuantos años han pasado hasta el día de hoy, pe.miFuncion(new Date(1984, 4, 23)) devolverá 35 años(en 2020).
+ */
