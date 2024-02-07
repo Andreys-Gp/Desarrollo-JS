@@ -181,7 +181,31 @@ const aplicacionMonto = (monto = undefined, des = 0) => {
     if (Math.sign(monto) === -1) return console.error(` el monto ${monto} no puede ser negativo`);
     if (typeof des !== "number") return console.error(`el valor "${des}" descuento ingresado no es un numero `);
     if (Math.sign(des) === -1) return console.error(`el descuento "${des}" no deve ser negativo `);
+    return console.info(`${monto}-${des} % = ${monto-((monto*des)/100)}`);
 }
+aplicacionMonto();
+aplicacionMonto(2);
+aplicacionMonto(-2);
+aplicacionMonto("2");
+
 /* 17) Programa una función que dada una fecha válida determine 
 cuantos años han pasado hasta el día de hoy, pe.miFuncion(new Date(1984, 4, 23)) devolverá 35 años(en 2020).
  */
+
+const calcularAnos = (fecha = undefined) => {
+    if (fecha === undefined) return console.warn("No ingresaste una fecha ");
+    if (!(fecha instanceof Date)) return console.log("El valor que ingresaste no es una fechas");
+
+    let hoyMenosFecha = new Date().getTime() - fecha.getTime()
+    aniosEnMs = 1000 * 60 * 60 * 365
+    aniosHumanos = Math.floor(hoyMenosFecha / aniosHumanos);
+
+    return (Math.sign(aniosHumanos) === -1) ?
+        console.log(`faltan ${Math.abs(aniosHumanos)} años para el ${fecha.getFullYear()}`) :
+        (Math.sign(aniosHumanos) === 1) ?
+        console.log(`han pasado ${aniosHumanos} años desde ${fecha.getFullYear()}`) :
+        console.log(`estamos en el año actual ${fecha.getFullYear()}`)
+}
+
+calcularAnos("1")
+calcularAnos({})
