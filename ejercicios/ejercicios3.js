@@ -5,12 +5,15 @@ const contarLetras = (cadena = "") => {
     if (typeof cadena !== "string") return console.log(`el valor ${cadena} ingresado no es una cadena`);
     let vocales = 0,
         consonantes = 0;
-    cadena = cadena.toLowerCase;
+    cadena = cadena.toLocaleLowerCase;
     for (let letra of cadena) {
-        if (/[aeiou]/.test(letra)) vocales++;
 
-        if (/[bcdfghjklmñpqrstvwxyz]/.test(letra)) consonantes++;
-
+        if (/[aeiou]/.test(letra)) {
+            vocales++;
+        }
+        if (/[bcdfghjklmñpqrstvwxyz]/.test(letra)) {
+            consonantes++;
+        }
     }
     return console.log({
         cadena,
@@ -18,6 +21,7 @@ const contarLetras = (cadena = "") => {
         consonantes
     });
 }
+contarLetras
 
 /* 19) Programa una función que valide que un texto sea un nombre válido, pe.miFuncion("Jonathan MirCha") devolverá verdadero.
  */
