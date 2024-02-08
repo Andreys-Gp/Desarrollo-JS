@@ -52,13 +52,68 @@ const validarCorreo = (correo = "") => {
         console.log(`"${correo}" correo invalido`);
 }
 
+validarCorreo()
+validarCorreo("brayan@gmail.com");
+
 /* 21) Programa una función que dado un array numérico devuelve otro array con los números elevados al cuadrado, pe.mi_funcion([1, 4, 5]) devolverá[1, 16, 25].
  */
 
+const devolverCuadrados = (arr = undefined) => {
+    if (arr === undefined) return console.log("no ingresaste arreglo numeros");
+    if (!(arr instanceof Array)) return console.log("el valor ingresado no es un arreglo");
+    if (arr.length === 0) return console.log("el arreglo esta vacio");
+    for (let num of arr) {
+        if (typeof num !== "number") return console.log(`el valor "${num}" no es numerico`);
+    }
+    const newArr = arr.map(el => el * el);
+    return console.log(`arreglo origianl: ${arr}, arreglo elevado cuadrado: ${newArr}`);
+
+}
+
+devolverCuadrados([1, 2, 3]);
+devolverCuadrados([]);
+
+
 /* 22) Programa una función que dado un array devuelva el número mas alto y el más bajo de dicho array, pe.miFuncion([1, 4, 5, 99, -60]) devolverá[99, -60].
  */
+const arrMinMax = (arr2 = undefined) => {
+    if (arr2 === undefined) return console.log("no ingresaste arreglo numeros");
+    if (!(arr2 instanceof Array)) return console.log("el valor ingresado no es un arreglo");
+    if (arr2.length === 0) return console.log("el arreglo esta vacio");
+    for (let num of arr2) {
+        if (typeof num !== "number") return console.log(`el valor "${num}" no es numerico`);
+    }
+    return console.log(`el arreglo original:${arr2}\nvalor mayor: ${Math.max(...arr2)}, \nvalor menor: ${Math.min(...arr2)}`);
+}
+arrMinMax([1, 2, 2])
 
 /* 23) Programa una función que dado un array de números devuelva un objeto con 2 arreglos en el primero almacena los números pares y en el segundo los impares, pe.miFuncion([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]) devolverá {
     pares: [2, 4, 6, 8, 0],
     impares: [1, 3, 5, 7, 9]
  */
+
+const separarParImpar = (arr3 = undefined) => {
+    if (arr3 === undefined) return console.log("no ingresaste arreglo numeros");
+    if (!(arr3 instanceof Array)) return console.log("el valor ingresado no es un arreglo");
+    if (arr3.length === 0) return console.log("el arreglo esta vacio");
+    for (let num of arr3) {
+        if (typeof num !== "number") return console.log(`el valor "${num}" no es numerico`);
+    }
+    return console.log({
+        pares: arr3.filter(num => num % 2 === 0),
+        impar: arr3.filter(num => num % 2 === 1)
+    })
+}
+
+
+
+/* 24) Programa una función que dado un arreglo de números devuelva un objeto con dos arreglos, el primero tendrá los numeros ordenados en forma ascendente y el segundo de forma descendiente, pe.miFuncion([7, 5, 7, 8, 6]) devolverá {
+asc: [5, 6, 7, 7, 8],
+desc: [8, 7, 7, 6, 5]
+}.
+ */
+
+/* 25) Programa una función que dado un arreglo de elementos, elimine los duplicados, pe.miFuncion(["x", 10, "x", 2, "10", 10, true, true]) devolverá["x", 10, 2, "10", true].
+ */
+
+/* 26) Programa una función que dado un arreglo de números obtenga el promedio, pe.promedio([9, 8, 7, 6, 5, 4, 3, 2, 1, 0]) devolverá 4.5. */
