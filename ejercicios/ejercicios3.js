@@ -26,7 +26,31 @@ contarLetras
 /* 19) Programa una función que valide que un texto sea un nombre válido, pe.miFuncion("Jonathan MirCha") devolverá verdadero.
  */
 
+const validarNombre = (nombre = "") => {
+    if (!nombre) return console.log("no ingresaste un nombre");
+    if (typeof nombre !== "string") console.log(`el valor "${nombre}" ingresa no es una cadena de texto`);
+    let ecpReg = /^[A-Za-z\s]+$/g.test(nombre);
+    return (ecpReg) ?
+        console.log(`"${nombre}" es un nombre valido`) :
+        console.log(`"${nombre}" no es un nombre valido`);
+}
+validarNombre();
+validarNombre(3);
+validarNombre("brayan")
+
+
+
 /* 20) Programa una función que valide que un texto sea un email válido, pe.miFuncion("jonmircha@gmail.com") devolverá verdadero. */
+
+const validarCorreo = (correo = "") => {
+    if (!correo) return console.log("no ingresaste un nombre");
+    if (typeof correo !== "string") console.log(`el valor "${correo}" ingresa no es una cadena de texto`);
+
+    let ecpReg = /[a-z0-9]+(\.[a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})/i.test(correo);
+    return (ecpReg) ?
+        console.log(`"${correo}" es un correo valido`) :
+        console.log(`"${correo}" correo invalido`);
+}
 
 /* 21) Programa una función que dado un array numérico devuelve otro array con los números elevados al cuadrado, pe.mi_funcion([1, 4, 5]) devolverá[1, 16, 25].
  */
