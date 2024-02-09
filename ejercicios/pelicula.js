@@ -22,3 +22,42 @@ de cada película.
     *Géneros Aceptados: Action, Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary, Drama, Family, Fantasy, Film Noir, Game - Show, History, Horror, Musical, Music, Mystery, News, Reality - TV, Romance, Sci - Fi, Short, Sport, Talk - Show, Thriller, War, Western. */
 
 
+class Pelicula {
+    constructor({
+        id,
+        titulo,
+        director,
+        estreno,
+        pais,
+        calificaion
+    }) {
+        this.id = id;
+        this.titulo = titulo;
+        this.director = director;
+        this.estreno = estreno;
+        this.pais = pais;
+        this.calificaion = calificaion;
+
+        this.validarIMDB(id);
+
+    }
+    validarCadena(propiedad, valor) {
+        if (!valor) return console.log(`${propiedad} "${valor}" esta vacio`);
+        if (typeof valor !== "string") return console.log(`${propiedad} "${valor}" ingresado no es una cadena de texto`);
+        return true;
+
+    }
+
+    validarIMDB(id) {
+        if (this.validarCadena("IMDB", id)) {
+            if (!(/^([a-z]{2}([0-9]){7})$/).test(id)) {
+                return console.log(`IMDB id "${id}" no es valido, debe tener 9 caracteres, 2 primeror letras minusculas,7 restantes numeros`);
+
+            }
+        }
+    }
+}
+
+const peli = new Pelicula({
+
+})
