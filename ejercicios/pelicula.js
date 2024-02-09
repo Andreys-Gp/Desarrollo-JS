@@ -56,6 +56,8 @@ class Pelicula {
             }
         }
     }
+
+
 }
 
 const peli = new Pelicula({
