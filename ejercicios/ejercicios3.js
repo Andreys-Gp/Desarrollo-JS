@@ -151,26 +151,21 @@ eliminarDuplicados()
 
 
 /* 26) Programa una función que dado un arreglo de números obtenga el promedio, pe.promedio([9, 8, 7, 6, 5, 4, 3, 2, 1, 0]) devolverá 4.5. */
-
-/* 27) Programa una clase llamada Pelicula.
-
-La clase recibirá un objeto al momento de instanciarse con los siguentes datos: id de la película en IMDB, titulo, director, año de estreno, país o países de origen, géneros y calificación en IMBD. -
-    Todos los datos del objeto son obligatorios. -
-    Valida que el id IMDB tenga 9 caracteres, los primeros 2 sean letras y los
-7 restantes números. -
-    Valida que el título no rebase los 100 caracteres. -
-    Valida que el director no rebase los 50 caracteres. -
-    Valida que el año de estreno sea un número entero de 4 dígitos. -
-    Valida que el país o paises sea introducidos en forma de arreglo. -
-    Valida que los géneros sean introducidos en forma de arreglo. -
-    Valida que los géneros introducidos esten dentro de los géneros
-aceptados * . -
-    Crea un método estático que devuelva los géneros aceptados * . -
-    Valida que la calificación sea un número entre 0 y 10 pudiendo ser
-decimal de una posición. -
-    Crea un método que devuelva toda la ficha técnica de la película. -
-    Apartir de un arreglo con la información de 3 películas genera 3
-instancias de la clase de forma automatizada e imprime la ficha técnica
-de cada película.
-
-    *Géneros Aceptados: Action, Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary, Drama, Family, Fantasy, Film Noir, Game - Show, History, Horror, Musical, Music, Mystery, News, Reality - TV, Romance, Sci - Fi, Short, Sport, Talk - Show, Thriller, War, Western. */
+const promedio = (datos = undefined) => {
+    if (datos === undefined) return console.log("no ingresaste arreglo numeros");
+    if (!(datos instanceof Array)) return console.log("el valor ingresado no es un arreglo");
+    if (datos.length === 0) return console.log("el arreglo esta vacio");
+    if (datos.length === 1) return console.log("el arreglo debe tener por lo menos dos elementos");
+    for (let num of datos) {
+        if (typeof num !== "number") return console.log(`el valor "${num}" no es numerico`);
+    }
+    return console.log(
+        datos.reduce((total, num, index, datos) => {
+            total += num;
+            if (index === datos.length - 1) {
+                return console.log(`el promedio de ${datos.join(" + ")} es ${total/datos.length} `)
+            }
+        })
+    )
+}
+promedio();
