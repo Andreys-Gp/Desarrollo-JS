@@ -119,12 +119,36 @@ const ordenarArreglo = (arr4 = undefined) => {
     for (let num of arr4) {
         if (typeof num !== "number") return console.log(`el valor "${num}" no es numerico`);
     }
+    console.log({
+        arr4,
+        asc: arr4.map(el => el).sort(),
+        des: arr4.map(el => el).sort().reverse()
+    })
 }
-
+ordenarArreglo([1, 2, 3, 4]);
 
 
 /* 25) Programa una función que dado un arreglo de elementos, elimine los duplicados, pe.miFuncion(["x", 10, "x", 2, "10", 10, true, true]) devolverá["x", 10, 2, "10", true].
  */
+
+const eliminarDuplicados = (arr5 = undefined) => {
+    if (arr5 === undefined) return console.log("no ingresaste arreglo numeros");
+    if (!(arr5 instanceof Array)) return console.log("el valor ingresado no es un arreglo");
+    if (arr5.length === 0) return console.log("el arreglo esta vacio");
+    if (arr5.length === 1) return console.log("el arreglo debe tener por lo menos dos elementos");
+    /*  return console.log({
+        original: arr5,
+        sinDuplicados: arr5.filter((value, index, self) => self.indexOf(value) === index)
+    })
+ */
+    return console.log({
+        original: arr5,
+        sinDuplicados: [...new Set(arr5)]
+    })
+
+}
+eliminarDuplicados()
+
 
 /* 26) Programa una función que dado un arreglo de números obtenga el promedio, pe.promedio([9, 8, 7, 6, 5, 4, 3, 2, 1, 0]) devolverá 4.5. */
 
