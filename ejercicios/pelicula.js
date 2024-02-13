@@ -39,6 +39,8 @@ class Pelicula {
         this.calificaion = calificaion;
 
         this.validarIMDB(id);
+        this.validarTitulo(titulo);
+        this.validarDirector(director);
 
     }
     validarCadena(propiedad, valor) {
@@ -47,6 +49,11 @@ class Pelicula {
         return true;
 
     }
+    validarLongitudCadena(propiedad, valor, longitud) {
+        if (valor.length > longitud) return console.log(`${propiedad} "${valor}" excede el numero de caracteres  permitidos (${longitud})`);
+        return true;
+    }
+
 
     validarIMDB(id) {
         if (this.validarCadena("IMDB", id)) {
@@ -57,9 +64,24 @@ class Pelicula {
         }
     }
 
+    validarTitulo(titulo) {
+        if (this.validarCadena("titulo", titulo))
+            this.validarLongitudCadena("titulo", titulo, 100);
+    }
+
+    validarDirector(director) {
+        if (this.validarCadena("director", director)) {
+
+            this.validarLongitudCadena("titulo", director, 50);
+        }
+    }
+
 
 }
 
+
+// const peli = new Pelicula({
 const peli = new Pelicula({
+    id: "tt1234567"
 
 })
