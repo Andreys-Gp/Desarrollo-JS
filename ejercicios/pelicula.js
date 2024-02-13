@@ -53,6 +53,12 @@ class Pelicula {
         if (valor.length > longitud) return console.log(`${propiedad} "${valor}" excede el numero de caracteres  permitidos (${longitud})`);
         return true;
     }
+    validarNumero(propiedad, valor) {
+
+    }
+
+
+
 
 
     validarIMDB(id) {
@@ -82,6 +88,8 @@ class Pelicula {
 
 // const peli = new Pelicula({
 const peli = new Pelicula({
-    id: "tt1234567"
+    id: "tt1234567",
+    titulo: "Brayan Gonzalez",
+    director: "ing Gonzalez"
 
 })
