@@ -29,20 +29,38 @@ class Pelicula {
         director,
         estreno,
         pais,
-        calificaion
+        generos,
+        calificacion
     }) {
         this.id = id;
         this.titulo = titulo;
         this.director = director;
         this.estreno = estreno;
         this.pais = pais;
-        this.calificaion = calificaion;
+        this.calificacion = calificacion;
+        this.generos = generos;
 
         this.validarIMDB(id);
         this.validarTitulo(titulo);
         this.validarDirector(director);
+        this.ValidarEstreno(estreno);
+        this.validarPais(pais);
+        this.validarGeneros(generos);
+        this.validarCalificacion(calificacion);
 
     }
+    static get listaGeneros() {
+        return ["Action", "Adult", "Adventure", "Animation", "Biography", "Comedy",
+            " Crime", "Documentary", "Drama", "Family", "Fantasy", "Film Noir", "Game - Show",
+            "History", "Horror", "Musical", "Music", "Mystery", "News", "Reality - TV",
+            "Romance", "Sci - Fi, Short", "Sport", "Talk - Show", "Thriller", "War", "Western"
+        ]
+    }
+    static generosAceptados() {
+        return console.log(`los generos aceptados son "${Pelicula.listaGeneros.join(", ")}"`);
+    }
+
+    // funciones simples
     validarCadena(propiedad, valor) {
         if (!valor) return console.log(`${propiedad} "${valor}" esta vacio`);
         if (typeof valor !== "string") return console.log(`${propiedad} "${valor}" ingresado no es una cadena de texto`);
@@ -54,12 +72,22 @@ class Pelicula {
         return true;
     }
     validarNumero(propiedad, valor) {
-
+        if (!valor) return console.log(`${propiedad} "${valor}" esta vacio`);
+        if (typeof valor !== "number") return console.log(`${propiedad} "${valor}" ingresado no es un numero`);
+        return true;
+    }
+    validarAreglo(propiedad, valor) {
+        if (!valor) return console.log(`${propiedad} "${valor}" esta vacio`);
+        if (!(valor instanceof Array)) return console.log(`${propiedad} "${valor}" ingresado no es un arreglo`);
+        if (valor.length === 0) return console.log(`${propiedad} "${valor}" no tiene datos`);
+        for (let cadena of valor) {
+            if (typeof cadena !== "string") return console.log(`el valor "${cadena}" ingresado no es una cadena e texto`);
+        }
+        return true;
     }
 
 
-
-
+    // funciones compueestas 
 
     validarIMDB(id) {
         if (this.validarCadena("IMDB", id)) {
@@ -81,15 +109,91 @@ class Pelicula {
             this.validarLongitudCadena("titulo", director, 50);
         }
     }
+    ValidarEstreno(estreno) {
+        if (this.validarNumero("año de estreno", estreno)) {
+            if (!(/^([0-9]){4}$/.test(estreno))) {
+                return console.log(`Año de estreno "${estreno}" no es valido, debe tener maximo cuatro numeros`);
+            }
+        }
 
+    }
 
+    validarPais(pais) {
+        this.validarAreglo("pais", pais);
+    }
+    validarGeneros(generos) {
+        if (this.validarAreglo("genero", generos)) {
+            for (let genero of generos) {
+                console.log(genero, Pelicula.listaGeneros.includes(genero));
+                if (!Pelicula.listaGeneros.includes(genero)) {
+                    console.log(`genero(s) incorrectos "${generos.join(", ")}"`);
+                    Pelicula.generosAceptados();
+                }
+            }
+        }
+    }
+    validarCalificacion(calificacion) {
+        if (this.validarNumero("calificacion", calificacion))
+            return (calificacion < 0 || calificacion > 10) ?
+                console.log(`la calificacion tiene que estar entre 0 a 10`) :
+                this.calificacion = calificacion.toFixed(1);
+    }
+
+    fichaTecnica() {
+        console.log(`Ficha tecnica:\n Titulo:"${this.titulo}"\n
+        Director:"${this.director}"\n
+        Año:"${this.estreno}"\n
+        Pais:"${this.pais.join("-")}"\n
+        Generos:"${this.generos.join(", ")}"\n
+        Calificacion:"${this.calificacion}"\n
+        MDB id:"${this.id}"
+        `)
+    }
 }
 
+/* Pelicula.generosAceptados();
+ */ // const peli = new Pelicula
 
-// const peli = new Pelicula({
-const peli = new Pelicula({
+/* const peli = new Pelicula({
     id: "tt1234567",
     titulo: "Brayan Gonzalez",
-    director: "ing Gonzalez"
+    director: "ing Gonzalez",
+    estreno: 2020,
+    pais: ["Mexico", "francia"],
+    generos: ["Action"],
+    calificacion: 1.094
 
 })
+peli.fichaTecnica(); */
+
+const misPelis = [{
+        id: "tt1234567",
+        titulo: "Brayan Gonzalez",
+        director: "ing Gonzalez",
+        estreno: 2020,
+        pais: ["Mexico", "francia"],
+        generos: ["Action"],
+        calificacion: 1.094
+    },
+    {
+        id: "tt2345256",
+        titulo: "El suspenso",
+        director: "ing Andreys",
+        estreno: 2022,
+        pais: ["colombia", "ecuador"],
+        generos: ["Action"],
+        calificacion: 1.243
+    },
+    {
+        id: "tt2556254",
+        titulo: "Anochecer",
+        director: "ing Perez",
+        estreno: 2024,
+        pais: ["venezuela"],
+        generos: ["Action"],
+        calificacion: 1.343
+    }
+
+]
+
+misPelis.forEach(el => new Pelicula(el).fichaTecnica());
