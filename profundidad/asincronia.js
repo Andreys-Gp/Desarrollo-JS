@@ -74,9 +74,9 @@ cuadradoPromise("")
 /* ASYNC AWAIT */
 
 function cuadradoPromise(value) {
-    if (typeof value !== "number") return Promise.reject(console.log(
-        `error, el valor ingresado "${value}" ingresado no es un numero `))
-
+    if (typeof value !== "number") {
+        return Promise.reject(`error, el valor ingresado "${value}" ingresado no es un numero `)
+    }
     return new Promise((resolve, reject) => {
         let pruebaPromise = setTimeout(() => {
 
@@ -95,7 +95,29 @@ function cuadradoPromise(value) {
 async function funcionAsincronaDeclarada() {
     try {
         console.log("inicion de funcion Asyn");
-        let obj = cuadradoPromise(0);
-        console.log(`Asyn funtion:${obj.value},${obj.result}`)
-    } catch {}
+        let obj = await cuadradoPromise(0);
+        console.log(`Asyn funtion:${obj.value},${obj.result}`);
+        obj = await cuadradoPromise(1);
+        console.log(`Asyn funtion:${obj.value},${obj.result}`);
+
+    } catch (err) {
+        console.error(err);
+    }
 }
+funcionAsincronaDeclarada();
+
+const funcionAsincronaExpresada = async () => {
+
+    try {
+        console.log("inicion de funcion Asyn");
+        let obj = await cuadradoPromise(3);
+        console.log(`Asyn funtion:${obj.value},${obj.result}`);
+        obj = await cuadradoPromise(51);
+        console.log(`Asyn funtion:${obj.value},${obj.result}`);
+
+    } catch (err) {
+        console.error(err);
+    }
+}
+
+funcionAsincronaExpresada();
