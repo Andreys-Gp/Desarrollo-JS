@@ -11,4 +11,4 @@ set.add(2);
 
 console.log(set, set.size);
 let arr = Array.from(set);
-console.log(arr)
+console.log(arr);
