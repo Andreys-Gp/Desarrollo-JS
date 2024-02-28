@@ -1,0 +1,13 @@
+
+
+      {
+        "cadena": "Brayan",
+        "numero": "123",
+       " Boolean": "true",
+        "arreglo": ["caminar", "mirar"],
+       " Object": {
+         " twuiter": "@twuiter",
+         " email": "@correo.prueba"
+        },
+       " null": null
+      }

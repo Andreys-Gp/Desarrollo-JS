@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const Json = {
+        cadena: "Brayan",
+        numero: 123,
+        Boolean: true,
+        arreglo: ["caminar", "mirar"],
+        Object: {
+          twuiter: "@twuiter",
+          email: "@correo.prueba",
+        },
+        null: null,
+      };
+      console.log(JSON.stringify(Json));
+      console.log(
+        JSON.parse(`{
+        "cadena": "Brayan",
+        "numero": "123",
+       " Boolean": "true",
+        "arreglo": ["caminar", "mirar"],
+       " Object": {
+         " twuiter": "@twuiter",
+         " email": "@correo.prueba"
+        },
+       " null": null
+      }`)
+      );
+    </script>
+  </body>
+</html>
