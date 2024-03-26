@@ -1,0 +1,25 @@
+Método: insertAdjacentHTML()
+
+Descripción: Inserta contenido HTML en una posición específica en relación con un elemento objetivo.
+
+Posiciones compatibles:
+
+'beforebegin': Inserta el HTML antes de la etiqueta de apertura del elemento objetivo.
+'afterbegin': Inserta el HTML dentro del elemento objetivo, justo después de su etiqueta de apertura pero antes de cualquier nodo hijo.
+'beforeend': Inserta el HTML dentro del elemento objetivo, justo antes de su etiqueta de cierre.
+'afterend': Inserta el HTML después de la etiqueta de cierre del elemento objetivo.
+Ejemplo:
+
+JavaScript
+const targetElement = document.getElementById("my-element");
+const newHTML = "<p>¡Este es contenido nuevo!</p>";
+targetElement.insertAdjacentHTML("beforebegin", newHTML);
+Usa el código con precaución.
+Explicación:
+
+El código anterior inserta el elemento <p> que contiene "¡Este es contenido nuevo!" antes de la etiqueta de apertura del elemento con el ID "my-element".
+
+Ten en cuenta:
+
+Si bien insertAdjacentHTML() es conveniente, generalmente se recomienda usar métodos como createElement() y appendChild() para un mejor control y separación de responsabilidades.
+Usar insertAdjacentHTML() puede introducir vulnerabilidades de seguridad potenciales si no tienes cuidado con la fuente del HTML que estás insertando.

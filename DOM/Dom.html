@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulacion del Dom</title>
+</head>
+<body>
+
+    <!-- manejadores de eventos -->
+
+    <button onclick="holaMundo()" style="display: block;">Evento con atributo html</button>
+    <br><br>
+    <button id="evento-semantico" style="display: block;">Evento con manejador semantico</button>
+    <br><br>
+    <button id="evento-multiple" style="display: block;">Evento con manejador multiple</button>
+    
+
+    <script>
+        function holaMundo(){
+            alert("hola mundo")
+            console.log(event)
+        }
+
+        const $eventSemantico=document.getElementById("evento-semantico"),
+              $eventMultiple=document.getElementById("evento-multiple")
+
+        $eventSemantico.onclick=holaMundo
+        $eventSemantico.onclick=function(e){
+            alert("manejador de evento semantico")
+            console.log(e)
+        }
+
+    $eventMultiple.addEventListener("click",holaMundo)
+    $eventMultiple.addEventListener("click", (e)=>{
+    alert("hola mundo manejador event multiple")
+    console.log(e)
+    console.log(e.type)
+    console.log(e.target)
+    })
+
+
+
+    </script>
+</body>
+</html>

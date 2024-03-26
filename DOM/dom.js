@@ -280,7 +280,7 @@ Ejemplo: const elementos = document.querySelectorAll(".clase")
 
        console.clear();
 
-       const $cardsTemplate=document.querySelector(".figure-card"),
+      /*  const $cardsTemplate=document.querySelector(".cards"),
             $template=document.getElementById("template-card").content,
             $fragment2=document.createDocumentFragment();
 
@@ -317,3 +317,20 @@ Ejemplo: const elementos = document.querySelectorAll(".clase")
             })
 
             $cardsTemplate.appendChild($fragment)
+
+            console.clear() */
+
+
+            //reemplaza partes del nodo 
+
+        /*  const $cards3=document.querySelector(".cards"),
+               $newCard=document.createElement("figure");
+
+               $newCard.innerHTML=`
+               <img src="./primavera.jpg" alt="Primavera">
+               <figcaption>Primavera</figcaption>`
+
+               $newCard.classList.add("card")
+               $cards3.replaceChild($newCard, $cards.children[2]); */
+
+               

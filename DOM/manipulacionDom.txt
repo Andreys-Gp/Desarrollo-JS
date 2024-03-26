@@ -1,0 +1,85 @@
+Métodos y significados del DOM:
+appendChild:
+
+Significado: Agregar un nodo hijo al final de un nodo padre.
+Ejemplo: padre.appendChild(hijo)
+insertBefore:
+
+Significado: Inserta un nodo hijo antes de otro nodo hijo especificado.
+Ejemplo: padre.insertBefore(nuevoHijo, hijoExistente)
+replaceChild:
+
+Significado: Reemplaza un nodo hijo por otro.
+Ejemplo: padre.replaceChild(nuevoHijo, hijoViejo)
+removeChild:
+
+Significado: Elimina un nodo hijo del árbol DOM.
+Ejemplo: padre.removeChild(hijo)
+cloneNode:
+
+Significado: Crea un clon de un nodo.
+Ejemplo: const clon = nodo.cloneNode(true)
+createElement:
+
+Significado: Crea un nuevo elemento DOM.
+Ejemplo: const elemento = document.createElement("div")
+createTextNode:
+
+Significado: Crea un nuevo nodo de texto.
+Ejemplo: const texto = document.createTextNode("Hola mundo")
+setAttribute:
+
+Significado: Establece un atributo para un elemento.
+Ejemplo: elemento.setAttribute("id", "miElemento")
+getAttribute:
+
+Significado: Obtiene el valor de un atributo para un elemento.
+Ejemplo: const valor = elemento.getAttribute("id")
+getElementsByTagName:
+
+Significado: Obtiene una lista de elementos por su nombre de etiqueta.
+Ejemplo: const elementos = document.getElementsByTagName("div")
+getElementById:
+
+Significado: Obtiene un elemento por su ID.
+Ejemplo: const elemento = document.getElementById("miElemento")
+parentElement:
+
+Significado: Obtiene el elemento padre de un nodo especificado.
+Ejemplo: const padre = hijo.parentElement
+textContent:
+
+Significado: Obtiene o establece el contenido de texto de un nodo.
+Ejemplo: const texto = elemento.textContent; elemento.textContent = "Nuevo texto"
+innerHTML:
+
+Significado: Obtiene o establece el HTML interno de un elemento.
+Ejemplo: const html = elemento.innerHTML; elemento.innerHTML = "<h1>Título</h1>"
+outerHTML:
+
+Significado: Obtiene o establece el HTML completo de un elemento.
+Ejemplo: const html = elemento.outerHTML; elemento.outerHTML = "<div>Nuevo elemento</div>"
+style:
+
+Significado: Obtiene o establece el estilo CSS de un elemento.
+Ejemplo: const estilo = elemento.style; elemento.style.color = "red"
+classList:
+
+Significado: Obtiene una lista de las clases CSS de un elemento.
+Ejemplo: const clases = elemento.classList; elemento.classList.add("claseNueva")
+addEventListener:
+
+Significado: Agrega un escuchador de eventos a un elemento.
+Ejemplo: elemento.addEventListener("click", function() { ... })
+removeEventListener:
+
+Significado: Elimina un escuchador de eventos de un elemento.
+Ejemplo: elemento.removeEventListener("click", function() { ... })
+querySelector:
+
+Significado: Obtiene el primer elemento que coincide con un selector de CSS.
+Ejemplo: const elemento = document.querySelector("#miElemento")
+querySelectorAll:
+
+Significado: Obtiene una lista de todos los elementos que coinciden con un selector de CSS.
+Ejemplo: const elementos = document.querySelectorAll(".clase")

@@ -1,0 +1,146 @@
+Métodos del DOM: Explicación y ejemplos
+Acceso al DOM:
+
+getElementById(id): Obtiene un elemento por su ID.
+Ejemplo:
+
+JavaScript
+const element = document.getElementById("my-element");
+Usa el código con precaución.
+getElementsByTagName(name): Obtiene una lista de elementos por su nombre de etiqueta.
+Ejemplo:
+
+JavaScript
+const elements = document.getElementsByTagName("button");
+Usa el código con precaución.
+getElementsByClassName(name): Obtiene una lista de elementos por su nombre de clase.
+Ejemplo:
+
+JavaScript
+const elements = document.getElementsByClassName("my-class");
+Usa el código con precaución.
+querySelector(selector): Obtiene un elemento por un selector CSS.
+Ejemplo:
+
+JavaScript
+const element = document.querySelector(".my-class");
+Usa el código con precaución.
+querySelectorAll(selector): Obtiene una lista de elementos por un selector CSS.
+Ejemplo:
+
+JavaScript
+const elements = document.querySelectorAll(".my-class");
+Usa el código con precaución.
+Manipulación del DOM:
+
+appendChild(node): Agrega un nodo al final de la lista de hijos de un elemento.
+Ejemplo:
+
+JavaScript
+const element = document.getElementById("my-element");
+const newElement = document.createElement("p");
+element.appendChild(newElement);
+Usa el código con precaución.
+insertBefore(node, referenceNode): Inserta un nodo antes de otro nodo en la lista de hijos de un elemento.
+Ejemplo:
+
+JavaScript
+const element = document.getElementById("my-element");
+const newElement = document.createElement("p");
+element.insertBefore(newElement, element.firstChild);
+Usa el código con precaución.
+removeChild(node): Elimina un nodo de la lista de hijos de un elemento.
+Ejemplo:
+
+JavaScript
+const element = document.getElementById("my-element");
+const childElement = element.lastChild;
+element.removeChild(childElement);
+Usa el código con precaución.
+replaceChild(newChild, oldChild): Reemplaza un nodo por otro en la lista de hijos de un elemento.
+Ejemplo:
+
+JavaScript
+const element = document.getElementById("my-element");
+const newElement = document.createElement("p");
+const oldElement = element.firstChild;
+element.replaceChild(newElement, oldElement);
+Usa el código con precaución.
+cloneNode(deep): Crea una copia de un nodo.
+Ejemplo:
+
+JavaScript
+const element = document.getElementById("my-element");
+const cloneElement = element.cloneNode(true);
+Usa el código con precaución.
+Modificación del contenido:
+
+innerHTML: Obtiene o establece el contenido HTML de un elemento.
+Ejemplo:
+
+JavaScript
+const element = document.getElementById("my-element");
+element.innerHTML = "<h1>Hola mundo!</h1>";
+Usa el código con precaución.
+textContent: Obtiene o establece el contenido de texto de un elemento.
+Ejemplo:
+
+JavaScript
+const element = document.getElementById("my-element");
+element.textContent = "Hola mundo!";
+Usa el código con precaución.
+setAttribute(name, value): Establece un atributo de un elemento.
+Ejemplo:
+
+JavaScript
+const element = document.getElementById("my-element");
+element.setAttribute("id", "new-id");
+Usa el código con precaución.
+getAttribute(name): Obtiene el valor de un atributo de un elemento.
+Ejemplo:
+
+JavaScript
+const element = document.getElementById("my-element");
+const id = element.getAttribute("id");
+Usa el código con precaución.
+removeAttribute(name): Elimina un atributo de un elemento.
+Ejemplo:
+
+JavaScript
+const element = document.getElementById("my-element");
+element.removeAttribute("id");
+Usa el código con precaución.
+Estilos:
+
+style.property: Obtiene o establece el valor de una propiedad de estilo de un elemento.
+Ejemplo:
+
+JavaScript
+const element = document.getElementById("my-element");
+element.style.color = "red";
+Usa el código con precaución.
+style.cssText: Obtiene o establece el estilo CSS completo de un elemento.
+Ejemplo:
+
+JavaScript
+const element = document.getElementById("my-element");
+element.style.cssText = "color: red; font-size: 16px;";
+Usa el código con precaución.
+Eventos:
+
+addEventListener(event, listener): Agrega un detector de eventos a un elemento.
+Ejemplo:
+
+JavaScript
+const element = document.getElementById("my-element");
+element.addEventListener("click", () => {
+  alert("Hola mundo!");
+});
+Usa el código con precaución.
+removeEventListener(event, listener): Elimina un detector de eventos de un elemento.
+Ejemplo:
+
+JavaScript
+const element = document.getElementById("my-element");
+const listener = ()
+Usa el código con precaución.
