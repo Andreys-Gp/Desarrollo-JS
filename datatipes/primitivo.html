@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- primitivo -->
+
+    <!-- 
+        En JavaScript, un primitive (valor primitivo,
+         tipo de dato primitivo) son datos que no son un objeto y no tienen métodos.
+          Hay 6 tipos de datos primitivos: string, number, bigint, boolean,
+           undefined y symbol. También hay null, que aparentemente es primitivo,
+            pero de hecho es un caso especial para cada Object:
+         y cualquier tipo estructurado se deriva de null por la Cadena de prototipos.
+     -->
+
+     <!-- 
+    String para el string primitivo.
+    Number para el number primitivo.
+    BigInt para el bigint primitivo.
+    Boolean para el boolean primitivo.
+    Symbol para el symbol primitivo.
+      -->
+
+
+     <script>
+        /* los valores primitivos son inmutables  */
+        /* el metodo de la cadena no modifica la cadena */
+        let bar="baz";
+        console.log(bar)
+        bar.toUpperCase();
+        console.log(bar)
+
+        /* el uso de un metodo de arreglo muta el arreglo */
+        let foot=[]
+        console.log(foot)
+        foot.push("prueba")
+        console.log(foot)
+
+        /* la asignacion de la al primitivo un valor (nolo muta) */
+        bar=bar.toUpperCase();
+        console.log(bar)
+
+        /* el metodo valueof() del contenedor devuelve el valor primitivo */
+
+        console.log(bar.valueOf())
+        console.log(foot.valueOf())
+     </script>
+</body>
+</html>

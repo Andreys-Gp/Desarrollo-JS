@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- gato moviendose dentro de una elipse  Animaciones-->
+    <p style="text-align: center;">
+    <img src="/CRS/146895038-ilustración-de-silueta-de-gato-sobre-fondo-blanco.jpg" alt="146895038-ilustración-de-silueta-de-gato-sobre-fondo-blanco" style="position: relative; width: 100px;">
+    </p>
+
+    <script>
+        let gato=document.querySelector("img");
+        let angulo=Math.PI/2;
+        const animar=(tiempo,ultimoTiempo)=>{
+            if(ultimoTiempo != null){
+                angulo+=(tiempo-ultimoTiempo)*0.001;
+            }
+            gato.style.top=(Math.sin(angulo)*20)+"px";
+            gato.style.left=(Math.cos(angulo)*200)+"px";
+            requestAnimationFrame(nuevoTiempo=>animar(nuevoTiempo,tiempo));
+        }
+        requestAnimationFrame(animar);
+
+    </script>
+</body>
+</html>

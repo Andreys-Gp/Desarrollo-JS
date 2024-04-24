@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>clic en el element manejador de event</p>
+
+    <!-- eventos y nodos del DOM -->
+
+    <button>presione</button>
+    <button id="btn2" style="display: block;">clic en la forma que deseees</button>
+
+    <!-- PROPAGACION stopPropagation -->
+    <p id="parrafo2">parrafo con un <button id="btn3">boton</button></p>
+    <!-- varios eventos -->
+ <button id="A">A</button>
+ <button id="B">B</button>
+ <button id="C">C</button>
+ 
+ <!-- EVENTOS DE TECLADO  cuando el teclado es presionado el navegador lanza un evento keydown
+cuando es liberado se obtiene un evento keyup  eventos para teclas especiales 
+shiftkey  ctrlkey  altkey  metakey -->
+
+<p>esta se pone violenta cuando se mantiene precionado la tecla v</p>
+
+
+<!-- Eventos de puntero -->
+<!-- clics de mouse  eventos del mause   mousedown  mouseup  para doble click dbclick 
+    informacion precisa del lugar del evento click  pageX  pageY -->
+
+    <style>
+        body{
+            height: 200px;
+            background: beige;
+        }
+        .punto{
+            height: 8px; width: 8px;
+            border-radius: 4px;
+            background: blue;
+            position: absolute;
+        }
+    </style>
+
+<!-- movimiento del mouse  cada vez que el mouse se mueve se desata evento mousemove
+ -->
+
+ <p>dibuja la barra para cmabiar su anchura</p>
+ <div id="barra" style="background: orange; width: 60px;height: 20px;"></div>
+
+ <!-- eventos de toque mouse pantallas tactiles 
+    eventos cuando se toca la pantalla  touchstart
+    cuando es movido mientras se toca touchmove
+    cuando se deja de tocar la pantalla touchend 
+
+    debido a como las pantallas tactiles pueden detectar multiples dedos
+    en un solo conjunto de coordenadas asociadas entre ellos 
+    sus objec de eventos tienen una porpiedad touches 
+    clientX cleintY  pageX   pageY
+-->
+
+<style>
+     punto2{position: absolute; display: block;
+     border: 2px solid red; border-radius: 50px; height: 100px;
+     width: 100px; }
+</style>
+<script>
+    const actualizar=(event7)=>{
+        for(let punto2;punto2=document.querySelector("punto2");){
+            punto2.remove();
+        }}
+
+        for(let i=0;i < event7.touches.length;i++){   
+            let{paginaX,paginaY}=event7.touches[i];
+            let punto2=document.createElement("punto2");
+            punto2.style.left=(paginaX-50)+"px";
+            punto2.style.top=(paginaY-50)+"px";
+            document.body.appendChild(punto2);
+        }
+
+        window.addEventListener("touchstart",actualizar)
+        window.addEventListener("touchmove",actualizar)
+        window.addEventListener("touchend",actualizar)
+</script>
+
+
+<!-- eventos de desplazamiento  evento scrol-->
+
+<div id="progreso"></div>
+
+<style>
+    #progreso{
+        border-bottom: 2px solid blue;
+        width: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+</style>
+<script>
+    /* Creando algo de contenido */
+ document.body.appendChild(document.createTextNode(
+    "brayanEsLoMaximo".repeat(1000)))
+    let barra3 = document.querySelector("#progreso");
+    window.addEventListener("scroll", ()=>{
+        let max=document.body.scrollHeight-innerHeight;
+        barra3.style.width=`${(pageXOffset/max)*100}%`
+    })
+</script>
+
+
+<!-- Eventos de foco evento focus el elemento obtiene 
+    un elemento blur este evento nc propaga como 
+   los anteriores eventos mencionados  -->
+
+    <p>nombre: <input type="text" dato-ayuda="tu nombre"></p>
+    <p>edad: <input type="text" dato-ayuda="tu edad en años"></p>
+    <p id="ayuda"></p>
+
+
+    <script>
+
+        let ayuda=document.querySelector("#ayuda")
+        let campos=document.querySelector("input")
+        for(let campo of Array.from(campos)){
+            campo.addEventListener("focus", event8=>{
+                let texto = event8.target.getAtribute("dato-ayuda")
+                ayuda.textContent=texto;
+            })
+            field.addEventListener("blur",event8=>{
+                ayuda.textContent="";
+            })
+
+        }
+
+
+
+        let ultimaX /* rastrea la utilma posicion de x del mouse observado */
+        let barra=document.getElementById("barra")
+        barra.addEventListener("mousemove",event6=>{
+        if(event6.button==0){
+            ultimaX=event6.clientX
+            window.addEventListener("mousedown",movido);
+            event6.preventDefault()/* evitar la seleccion */
+        }
+        })
+        const movido =(event6)=>{
+            if(event6.button==0){
+                window.removeEventListener("mousedown",movido)
+            }else{
+                let distancia=event6.clientX-lastx;
+                let nuevaAnchura=Math.max(10,barra.offsetWidth+distancia)
+                
+                barra.style.width=nuevaAnchura+"px"
+                ultimaX=event6.clientX;
+            }
+        }
+
+
+
+        window.addEventListener("click", event5=>{
+            let punto=document.createElement("div")
+            punto.className="punto"
+            punto.style.left=(event5.pageX-4)+"px"
+            punto.style.top=(event5.pageY-4)+"px"
+            document.body.appendChild(punto)
+
+            console.log(punto)
+        })
+
+
+
+        window.addEventListener("keydown",evento4=>{
+            if(evento4.key=="v"){
+                document.body.style.background="violet"
+            }
+        })
+        window.addEventListener("keyup",evento4=>{
+            if(evento4.key=="v"){
+                document.body.style.background="";
+            }
+        })
+        window.addEventListener("keydown", evento4=>{
+            if(evento4.key=="" && evento4.ctrlKey){
+                console.log("!continuando!")
+            }
+        })
+
+
+        document.body.addEventListener("click", evento3=>{
+            if(evento3.target.nodeName=="BUTTON"){
+                console.log("presionado",evento3.target.textContent)
+            }
+        })
+
+        let parrafo2=document.getElementById("parrafo2")
+        let btn3=document.getElementById("btn3")
+        parrafo2.addEventListener("mousedown",()=>{
+            console.log("manejador del parrafo")
+        })
+        btn3.addEventListener("mousedown",evento2=>{
+            console.log("manejador del boton")
+            if(evento2.button==2) evento2.stopPropagation();
+        })
+
+
+        let botonevent=document.getElementById("btn2")
+        botonevent.addEventListener("mousedown",evento=>{
+            if(evento.button==0){
+                console.log("boton izquierdo")
+            }else if(evento.button==1){
+                console.log("boton central")
+            }else if(evento.button==2){
+                console.log("boton derecho")
+            }
+        })
+
+        let boton=document.querySelector("button");
+        boton.addEventListener("click",(e)=>{
+            console.log("boton precionado")
+        })
+
+       /*  window.addEventListener("click",()=>{
+            console.log("¿tocaste?");
+         }) */
+
+
+    </script>
+</body>
+</html>

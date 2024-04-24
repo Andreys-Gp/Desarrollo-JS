@@ -14,7 +14,15 @@
     <button id="evento-semantico" style="display: block;">Evento con manejador semantico</button>
     <br><br>
     <button id="evento-multiple" style="display: block;">Evento con manejador multiple</button>
-    
+
+    <p>El <img src="/CRS/descarga.jpeg" alt="Gato"> en el <img src="/CRS/14658_sombreros-artesania-colombia.jpg" alt="sombrero"></p>
+ <p><button onclick="sustituirImagenes()">sustituir</button></p>   
+
+ <blockquote id="cita">
+    nigun libro puede terminarse jamas, mientras se trabaja se trabaja en 
+    el aprendimos solo lo suficiente para encontrar inmaduro el momento 
+    en el que nos alejamos de el 
+ </blockquote>
 
     <script>
         function holaMundo(){
@@ -38,6 +46,41 @@
     console.log(e.type)
     console.log(e.target)
     })
+
+    /* la estructura de datos  de datos del navegador utililiza para representar el documento como modelo de caja 
+    o llamada modelo de objeto del documento o DOM (Document Object Model) */
+
+    /* crear nodos con el metodo document.createTextNode */
+function sustituirImagenes(){
+let imagenes=document.body.getElementsByTagName("img");
+for(let i=imagenes.length-1;i>=0;i--){
+    let imagen=imagenes[i];
+    if(imagen.alt){
+     let texto =document.createTextNode(imagen.alt);
+     imagen.parentNode.replaceChild(texto,imagen);
+}
+
+}}
+
+/* creando nodos elemento document.createElement  propiedades del DOM parentNode y childNodes*/
+
+const creandoElemento=(tipo, ...hijos)=>{
+  let nodo=document.createElement(tipo);
+  for(let hijo of hijos){
+    if(typeof hijo !="string"){
+        nodo.appendChild(hijo);
+        }else{
+            nodo.appendChild(document.createTextNode(hijo));
+    }}
+    return nodo;
+}
+
+document.getElementById("cita").appendChild(
+    creandoElemento("footer", "---", creandoElemento("strong","karl Popper"),
+    ",prefacio de la segunda edicion de", creandoElemento("em","la sociedad abierta y sus enemigos"),", 1950"
+))
+/* conociendo la posicion del nodo o elemento en cuestion  */
+console.log("getBoundingClientRect:", document.getElementById("cita").getBoundingClientRect());
 
 
 
